@@ -41,7 +41,7 @@ This the notes for workshop, please refer the [slides](https://slides.com/yangan
     "id":1,
     "method":"author_insertKey",
     "params": [
-      "babe",
+      "etho",
       "tomorrow ritual harsh grab admit jewel slice raw subject open rather uncover",
       "0x70bf51d123581d6e51af70b342cac75ae0a0fc71d1a8d388719139af9c042b18"
     ]
@@ -55,6 +55,15 @@ This the notes for workshop, please refer the [slides](https://slides.com/yangan
   '{
       "id": 0,
       "method":"shadow_getEthHeaderByNumber",
+      "params":{"block_num":  9966666}
+  }'
+  ```
+ - test service connection
+  ```
+  curl http://eth-resource -H "Content-Type:application/json;charset=utf-8" -d \
+  '{
+      "id": 0,
+      "method":"shadow_getEthHeaderWithProofByNumber",
       "params":{"block_num":  9966666}
   }'
   ```

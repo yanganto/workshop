@@ -10,10 +10,10 @@ ARG version=0.5.4
 ARG clean=true
 
 # ip location of shadow.darwinia.network
-ARG shadowip=35.234.9.96
+ARG shadowip=35.234.35.49
 
 # put your infura key here
-ARG infurakey=YourInfuraKey
+ENV INFURA_KEY=YourInfuraKey
 
 MAINTAINER yanganto@gmail.com
 
@@ -72,7 +72,7 @@ RUN systemctl disable nginx
 # https://github.com/darwinia-network/darwinia-common/pull/120
 
 RUN cp /etc/hosts /tmp/hosts 
-RUN echo '${shadowip} eth-resource' >> /tmp/hosts
+RUN echo ${shadowip}" eth-resource" >> /tmp/hosts
 RUN mkdir -p -- /lib-override && cp /usr/lib/libnss_files.so.2 /lib-override
 RUN sed -i 's:/etc/hosts:/tmp/hosts:g' /lib-override/libnss_files.so.2
 ENV LD_LIBRARY_PATH /lib-override
@@ -86,7 +86,7 @@ RUN mv nginx.conf /etc/nginx
 ###############################
 ### Services Runner Setting ###
 ###############################
-RUN pacman -S supervisor --noconfirm
+RUN pacman -Syu supervisor --noconfirm
 RUN wget https://raw.githubusercontent.com/yanganto/workshop/layer-one-workshop/2020-05-04/insert_offchain_key.sh 
 RUN chmod +x insert_offchain_key.sh
 RUN wget https://raw.githubusercontent.com/yanganto/workshop/layer-one-workshop/2020-05-04/insert_validator_key.sh 
