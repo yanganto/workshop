@@ -55,7 +55,7 @@ This the notes for workshop, please refer the [slides](https://slides.com/yangan
   '{
       "id": 0,
       "method":"shadow_getEthHeaderByNumber",
-      "params":{"block_num":  9966666}
+      "params":{"block_num":  9964155}
   }'
   ```
  - test service connection
@@ -64,7 +64,7 @@ This the notes for workshop, please refer the [slides](https://slides.com/yangan
   '{
       "id": 0,
       "method":"shadow_getEthHeaderWithProofByNumber",
-      "params":{"block_num":  9966666}
+      "params":{"block_num":  9964155}
   }'
   ```
 
